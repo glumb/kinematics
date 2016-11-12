@@ -4,12 +4,14 @@
   "main": "/src/index.js",
   "version": "0.0.0-semantic-release-controlled",
   "scripts": {
-    "commit": "git cz",
-    "test": "./node_modules/.bin/mocha --compilers js:babel-register ./test/*.test.js",
+    "commit": "git-cz",
+    "test": "./node_modules/.bin/mocha ./test/*.test.js --compilers js:babel-register",
+    "watch:test": "npm t -- -w",
     "eslint": "./node_modules/.bin/eslint './src/*.js' './test/*.js' --fix",
     "build": "babel --out-dir dist src",
-    "watch:test": "npm t -- -w",
     "cover": "nyc npm t",
+    "report-coverage": "nyc report --reporter=text-lcov > coverage.lcov && codecov",
+    "check-coverage": "nyc check-coverage --functions 100",
     "semantic-release": "semantic-release pre && npm publish && semantic-release post"
   },
   "repository": {
@@ -36,6 +38,7 @@
     "babel-preset-stage-2": "6.18.0",
     "babel-register": "6.18.0",
     "chai": "3.5.0",
+    "codecov.io": "0.1.6",
     "commitizen": "2.8.6",
     "cz-conventional-changelog": "1.2.0",
     "eslint": "3.10.0",
