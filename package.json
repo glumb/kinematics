@@ -10,7 +10,7 @@
     "eslint": "./node_modules/.bin/eslint './src/*.js' './test/*.js' --fix",
     "build": "babel --out-dir dist src",
     "cover": "nyc npm t",
-    "report-coverage": "nyc report --reporter=text-lcov",
+    "report-coverage": "nyc report --reporter=text-lcov > coverage.lcov",
     "check-coverage": "nyc check-coverage --functions 100",
     "semantic-release": "semantic-release pre && npm publish && semantic-release post"
   },
