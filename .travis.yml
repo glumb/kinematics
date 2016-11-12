@@ -15,6 +15,7 @@ script:
   - npm run cover
 after_success:
   - npm run report-coverage
+  - bash <(curl -s https://codecov.io/bash)
   - npm run semantic-release
 branches:
   except:
