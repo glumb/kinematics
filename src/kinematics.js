@@ -1,9 +1,8 @@
 export default class Kinematics {
+  /**
+   * @param {Array} geometry [5][3] Array including geometry information [x,y,z]
+   */
   constructor(geometry) {
-    this.OK = 0
-    this.OUT_OF_RANGE = 1
-    this.OUT_OF_BOUNDS = 2
-
     if (geometry.length !== 5) {
       throw new Error('geometry array must have 5 entries')
     }
@@ -39,14 +38,14 @@ export default class Kinematics {
   }
 
   /**
-   * calculateAngles - calculate robot anges based on TCP and geometry
+   * calculateAngles - calculate robot angles based on TCP and geometry
    *
    * @param  {number} x             coordinate
    * @param  {number} y             coordinate
    * @param  {number} z             coordinate
-   * @param  {number} a             euler anle rotation order abc
-   * @param  {number} b             euler anle rotation order abc
-   * @param  {number} c             euler anle rotation order abc
+   * @param  {number} a             euler angle rotation order abc
+   * @param  {number} b             euler angle rotation order abc
+   * @param  {number} c             euler angle rotation order abc
    * todo @param  {String} configuration S1 S2 S3
    * @return {Array}                angles
    */
@@ -168,14 +167,12 @@ export default class Kinematics {
     J[2][1] = d + g * h + f * i
     J[2][2] = -tb * tc + ta * e - tb * f * h + tb * g * i + ta * j
 
-
     // ---- J3 ----
     // # R0 R1 R2
 
     J[3][0] = ta * tc + tb * e + ta * f * h - ta * g * i + tb * j + ta * f * k * m - ta * g * l * m - ta * g * k * n - ta * f * l * n + tb * o
     J[3][1] = d + g * h + f * i + g * k * m + f * l * m + f * k * n - g * l * n
     J[3][2] = -tb * tc + ta * e - tb * f * h + tb * g * i + ta * j - tb * f * k * m + tb * g * l * m + tb * g * k * n + tb * f * l * n + ta * o
-
 
     // ---- J4J3 J4J5 ----
     // # J3 J4 J5
