@@ -23,6 +23,9 @@
     "inverse kinematics",
     "kinematcis"
   ],
+  "files": [
+    "dist"
+  ],
   "author": "Maximilian Beck <maximilian@glumb.de> (http://glumb.de/)",
   "license": "MIT",
   "bugs": {
