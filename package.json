@@ -1,7 +1,7 @@
 {
   "name": "kinematics",
   "description": "Robot kinematics library",
-  "main": "/dist/index.js",
+  "main": "dist/index.js",
   "version": "0.0.0-semantic-release-controlled",
   "scripts": {
     "commit": "git-cz",
