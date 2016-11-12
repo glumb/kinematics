@@ -1,0 +1,17 @@
+#npm
+node_modules
+npm-debug.log
+
+#build
+dist
+
+#phpstorm
+.idea
+
+#coverage
+.nyc_output
+coverage
+
+#mac
+.DS_Store
+

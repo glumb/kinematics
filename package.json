@@ -1,0 +1,53 @@
+{
+  "name": "kinematics",
+  "description": "Robot kinematics library",
+  "main": "/src/index.js",
+  "version": "0.0.0-semantic-release-controlled",
+  "scripts": {
+    "commit": "git cz",
+    "test": "./node_modules/.bin/mocha --compilers js:babel-register ./test/*.test.js",
+    "eslint": "./node_modules/.bin/eslint './src/*.js' './test/*.js' --fix",
+    "build": "babel --out-dir dist src",
+    "watch:test": "npm t -- -w",
+    "cover": "nyc npm t",
+    "semantic-release": "semantic-release pre && npm publish && semantic-release post"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/glumb/kinematics.git"
+  },
+  "keywords": [
+    "robotics",
+    "inverse kinematics",
+    "kinematcis"
+  ],
+  "author": "Maximilian Beck <maximilian@glumb.de> (http://glumb.de/)",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/glumb/kinematics/issues"
+  },
+  "homepage": "https://github.com/glumb/kinematics#readme",
+  "devDependencies": {
+    "babel-cli": "6.18.0",
+    "babel-core": "6.18.2",
+    "babel-eslint": "7.1.0",
+    "babel-polyfill": "6.16.0",
+    "babel-preset-es2015": "6.18.0",
+    "babel-preset-stage-2": "6.18.0",
+    "chai": "3.5.0",
+    "commitizen": "2.8.6",
+    "cz-conventional-changelog": "1.2.0",
+    "eslint": "3.10.0",
+    "eslint-config-airbnb": "13.0.0",
+    "eslint-plugin-import": "2.2.0",
+    "eslint-plugin-jsx-a11y": "^2.2.3",
+    "eslint-plugin-react": "6.6.0",
+    "istanbul": "0.4.5",
+    "mocha": "3.1.2",
+    "nyc": "8.4.0",
+    "semantic-release": "^4.3.5"
+  },
+  "czConfig":{
+    "path": "node_modeules/cz-conventional-changelog"
+  }
+}
