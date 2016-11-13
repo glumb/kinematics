@@ -28,7 +28,7 @@ const RobotKin = new Kinematics(geometry)
 
 let angles = [1.57, 1.2, 0, 0.3, 2.2, 1.1]
 
-const pose = RobotKin.forward(...angles)
+const pose = RobotKin.forward(...angles)[5]
 
 angles = RobotKin.inverse(...pose)
 ```
@@ -73,3 +73,21 @@ returns
 [  2, 1.6,  2.1, -3.5,  1, -1.5 ] //array of angles
 [  1, 2.3,  3.1,  NaN, NaN, NaN ] //NaN for out of reach angles
 ```
+
+##kinematic coupling
+kinematics.js assumes a robot with a series of joints. Some robots may have different kinematics. The depicted robot has a hinge at *J1* and R1/R2 are at the same kinematic position. Therefore moving *R1* also changes the angle at *J2*. To account for that, *R2* has to move the same amount.
+
+![sr_geometry_kinematic_coupling](https://cloud.githubusercontent.com/assets/3062564/20247618/cd029290-a9d0-11e6-92ed-ef0f43a16e9b.png)
+
+Using that information, you can use kinematics.js to calculate the initial angles and correct the according to your kinematics.
+
+```js
+let angles = RobotKin.inverse(...pose)
+angles[2] = angles[1]
+//set angles, do stuff 🤖
+```
+
+##TODO
+- robot configuration
+- comply with DH for TCP orientation?
+- more kinematic chains
