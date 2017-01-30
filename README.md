@@ -79,11 +79,11 @@ kinematics.js assumes a robot with a series of joints. Some robots may have diff
 
 ![sr_geometry_kinematic_coupling](https://cloud.githubusercontent.com/assets/3062564/20247618/cd029290-a9d0-11e6-92ed-ef0f43a16e9b.png)
 
-Using that information, you can use kinematics.js to calculate the initial angles and correct the according to your kinematics.
+Using that information, you can use kinematics.js to calculate the initial angles and correct them according to your kinematics.
 
 ```js
 let angles = RobotKin.inverse(...pose)
-angles[2] = angles[1]
+angles[2] += angles[1]
 //set angles, do stuff 🤖
 ```
 
