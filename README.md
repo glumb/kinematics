@@ -1,4 +1,4 @@
-#kinematics.js
+# kinematics.js
 
 [![GitHub license](https://img.shields.io/badge/license-MIT-blue.svg)](https://raw.githubusercontent.com/glumb/kinematics/master/LICENSE.md)
 [![Travis](https://img.shields.io/travis/glumb/kinematics.svg)](https://travis-ci.org/glumb/kinematics)
@@ -7,12 +7,12 @@
 
 6DOF robot kinematics in JavaScript.
 
-##Install
+## Install
 ```console
 npm install kinematics --save
 ```
 
-##Use
+## Use
 ```js
 const Kinematics = require('kinematics').default
 
@@ -32,7 +32,7 @@ const pose = RobotKin.forward(...angles)[5]
 
 angles = RobotKin.inverse(...pose)
 ```
-##Geometry
+## Geometry
 The geometry array consists of 5 entries describing the links *V0-V5*. Each *Vn* is a tuple of 3 coordinates from *Jn* to *Jn+1*.
 One constraint: The y,z of *V3* and x,z of *V4* must be 0 for the kinematics to work.
 <p align="center">
@@ -42,7 +42,7 @@ One constraint: The y,z of *V3* and x,z of *V4* must be 0 for the kinematics to 
   <img align="center" src="https://cloud.githubusercontent.com/assets/3062564/20245030/3c43008e-a997-11e6-9228-26ea31caa072.png" width=70%/>
 </p>
 
-##API
+## API
 
 **forward**
 
@@ -74,7 +74,7 @@ returns
 [  1, 2.3,  3.1,  NaN, NaN, NaN ] //NaN for out of reach angles
 ```
 
-##kinematic coupling
+## kinematic coupling
 kinematics.js assumes a robot with a series of joints. Some robots may have different kinematics. The depicted robot has a hinge at *J1* and R1/R2 are at the same kinematic position. Therefore moving *R1* also changes the angle at *J2*. To account for that, *R2* has to move the same amount.
 
 ![sr_geometry_kinematic_coupling](https://cloud.githubusercontent.com/assets/3062564/20247618/cd029290-a9d0-11e6-92ed-ef0f43a16e9b.png)
@@ -87,7 +87,7 @@ angles[2] += angles[1]
 //set angles, do stuff 🤖
 ```
 
-##TODO
+## TODO
 - robot configuration
 - comply with DH for TCP orientation?
 - more kinematic chains
